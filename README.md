@@ -10,7 +10,7 @@
 
 ## The first tier is a public page providing the public with general information about the legal focused ANGO.
 
-## The second tier is a members only section providing information to members not published to the public at large.  This tier includeds a two way chat feature for members to communicate with each other via
+## The second tier is a members only section providing information to members not published to the public at large.  This tier includes a two way chat feature for members to communicate with each other via
 
 ### general chat room
 ### private one-on-one chat
