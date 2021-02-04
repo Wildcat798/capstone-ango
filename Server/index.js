@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const http = require("http");
 const app = express();
@@ -36,6 +38,9 @@ app.use(express.static('public'));
 app.engine('html', es6Renderer);
 app.set('views', 'templates');
 app.set('view engine', 'html');
+
+const homeRoutes = require("./routers/home")
+const userRoutes = require("./routers/user")
 
 const messages = {
     general: [],
@@ -90,6 +95,9 @@ io.on('connection', socket => {
         io.emit("new user", users);
     });
 });
+
+app.use("/", homeRoutes)
+app.use("/user", userRoutes)
 
 server.listen(1337, () => console.log('server is running on port 1337'));
 
