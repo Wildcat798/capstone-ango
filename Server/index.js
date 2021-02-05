@@ -46,11 +46,9 @@ const blogRoutes = require("./routers/blog")
 const { requireLogin } = require('./auth')
 
 app.use("/", homeRoutes)
-<<<<<<< HEAD
-app.use("/user", userRoutes)
-app.use("/blog", blogRoutes)
-=======
+
 app.use("/api/user", userRoutes)
+app.use("/api/blog", blogRoutes)
 
 app.get('/private', requireLogin, (req, res) => {
     console.log(req.session.user);
@@ -60,10 +58,10 @@ app.get('/private', requireLogin, (req, res) => {
 <h1>Hi ${username}!</h1>
 <a href="/blog">Test Stuff</a>
 <br>
-<a href="/users/logout">Log out</a>
+<a href="/user/logout">Log out</a>
     `);
 });
->>>>>>> 35ef2cc6258982aee950785a37f2a2265bab671a
+
 
 app.get('/unauthorized', (req, res) => {
     res.send(`You must gather your party before venturing forth.`);
