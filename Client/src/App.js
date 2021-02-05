@@ -14,6 +14,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import Home from './Components/Home';
 
 const initialMessagesState = {
   general: [],
@@ -136,6 +137,7 @@ function App() {
 
   return (
     <div className="App">
+      <Home />
 
     <Router>
       <Switch>
