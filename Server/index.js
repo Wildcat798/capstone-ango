@@ -42,6 +42,24 @@ app.set('view engine', 'html');
 const homeRoutes = require("./routers/home")
 const userRoutes = require("./routers/user")
 
+app.use("/", homeRoutes)
+app.use("/user", userRoutes)
+
+app.get('/api/hello', (req,res) => {
+    res.json('hello world')
+})
+
+server.listen(1337, () => console.log('server is running on port 1337'));
+
+
+
+
+
+
+// ------------------------------------------------------------------
+// CHAT STUFF
+// ------------------------------------------------------------------
+
 const messages = {
     general: [],
     lawmakers: [],
@@ -96,10 +114,7 @@ io.on('connection', socket => {
     });
 });
 
-app.use("/", homeRoutes)
-app.use("/user", userRoutes)
 
-server.listen(1337, () => console.log('server is running on port 1337'));
 
 
 //     if (!users[socket.id]) {
