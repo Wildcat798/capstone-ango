@@ -41,9 +41,11 @@ app.set('view engine', 'html');
 
 const homeRoutes = require("./routers/home")
 const userRoutes = require("./routers/user")
+const blogRoutes = require("./routers/blog")
 
 app.use("/", homeRoutes)
 app.use("/user", userRoutes)
+app.use("/blog", blogRoutes)
 
 app.get('/api/hello', (req,res) => {
     res.json('hello world')
