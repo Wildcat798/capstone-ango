@@ -42,12 +42,26 @@ app.set('view engine', 'html');
 const homeRoutes = require("./routers/home")
 const userRoutes = require("./routers/user")
 
-app.use("/", homeRoutes)
-app.use("/user", userRoutes)
+const { requireLogin } = require('./auth')
 
-app.get('/api/hello', (req,res) => {
-    res.json('hello world')
-})
+app.use("/", homeRoutes)
+app.use("/api/users", userRoutes)
+
+app.get('/private', requireLogin, (req, res) => {
+    console.log(req.session.user);
+    const { username } = req.session.user;
+    res.send(`
+
+<h1>Hi ${username}!</h1>
+<a href="/todos">Test Stuff</a>
+<br>
+<a href="/users/logout">Log out</a>
+    `);
+});
+
+app.get('/unauthorized', (req, res) => {
+    res.send(`You must gather your party before venturing forth.`);
+});
 
 server.listen(1337, () => console.log('server is running on port 1337'));
 
