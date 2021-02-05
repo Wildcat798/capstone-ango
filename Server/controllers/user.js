@@ -14,26 +14,34 @@ const signUp = (req, res) => {
 
 const processSignUp = async (req, res) => {
 	const { username, password, country, email } = req.body;
-
-	const hash = bcrypt.hashSync(password, 10);
-
-	try {
-		const newUser = await User.create({
-			username,
-			hash,
-			country,
-			email,
+	console.log(username, password);
+	if (username == '' || password == '') {
+		console.log('username or password is blank', req.baseUrl);
+		console.log("API: sending back 404");
+		res.status(400).json({
+			errormsg: "Username or password is blank"
 		});
-		res.redirect(`/user/login`);
-	} catch (e) {
-		if (e == "SequelizeUniqueConstraintError") {
-			res.render("signup", {
-				locals: {
-					title: "Sign Up",
-					errormsg: "This username is already taken.",
-				},
-				...layout,
+	} else {
+		const hash = bcrypt.hashSync(password, 10);
+		try {
+			const newUser = await User.create({
+				username,
+				hash,
+				country,
+				email,
 			});
+			console.log("API: user created successfully");
+			res.status(200).json({
+				errormsg: "Success"
+			});
+	} catch (e) {
+		console.log(e.name);
+		if (e.name === "SequelizeUniqueConstraintError") {
+			r}
+			console.log("API: username already taken");
+			res.status(400).json({
+				errormsg: "Username is already taken"
+			});      
 		}
 	}
 };
@@ -52,41 +60,68 @@ const processLogin = async (req, res) => {
 	const { username, password } = req.body;
 	const user = await User.findOne({
 		where: {
-			username,
-		},
+			username
+		}
 	});
-	if (user && bcrypt.compareSync(password, user.hash)) {
-		console.log("=====LOGIN SUCCESS=====");
-		req.session.user = {
-			username: user.username,
-			id: user.id,
-		};
-		req.session.save(() => {
-			res.redirect("/private/chat");
-		});
-	} else {
-		res.render("login", {
-			...layout,
-			locals: {
-				title: "Log In",
-				errormsg: "The username or password is incorrect.",
-			},
-		});
-	}
-};
+	if (user) {
+		console.log('valid user...checking password');
+		const isValid = bcrypt.compareSync(password, user.hash);
+		if (isValid) {
+			console.log('password is good!');
+			req.session.user = {
+			username,
+			id: user.id
+			};
+			req.session.save(() => {
+			console.log("API: login successful");
+			res.status(200).json({
+				errormsg: "Login successful",
+				id: user.id,
+			});
+			return;
+			
+			});
 
-const requireLogin = (req, res, next) => {
-	if (req.session.user) {
-		next();
 	} else {
-		res.redirect("/user/login");
+		console.log('but password is wrong');
+		console.log("API: invalid password for user");
+		res.status(400).json({
+			errormsg: "Invalid username or password",
+		});
+		return;
+		}
+	} else {
+		console.log('not a valid user');
+		console.log("API: invalid username");
+		res.status(400).json({
+			errormsg: "Invalid username or password",
+		});
+		return;
 	}
 };
 
 const logout = (req, res) => {
+	console.log('logging out...');
 	req.session.destroy(() => {
-		res.redirect("/user/login");
+		console.log("API: invalid username");
+		res.status(200).json({
+			message: "Logout successful",
+		});
+		return;
 	});
+};
+
+const loginStatus = (req, res) => {
+	console.log("API: checking login status");
+	if (req.session.user) {
+		res.status(200).json({
+			status: "OK"
+		});
+	} else {
+		res.status(400).json({
+			status: "no active session"
+		});
+	}
 };
 
 module.exports = {
@@ -95,5 +130,5 @@ module.exports = {
 	login,
 	processLogin,
 	logout,
-	requireLogin,
+	loginStatus
 };

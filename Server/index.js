@@ -43,13 +43,31 @@ const homeRoutes = require("./routers/home")
 const userRoutes = require("./routers/user")
 const blogRoutes = require("./routers/blog")
 
+const { requireLogin } = require('./auth')
+
 app.use("/", homeRoutes)
+<<<<<<< HEAD
 app.use("/user", userRoutes)
 app.use("/blog", blogRoutes)
+=======
+app.use("/api/user", userRoutes)
 
-app.get('/api/hello', (req,res) => {
-    res.json('hello world')
-})
+app.get('/private', requireLogin, (req, res) => {
+    console.log(req.session.user);
+    const { username } = req.session.user;
+    res.send(`
+
+<h1>Hi ${username}!</h1>
+<a href="/blog">Test Stuff</a>
+<br>
+<a href="/users/logout">Log out</a>
+    `);
+});
+>>>>>>> 35ef2cc6258982aee950785a37f2a2265bab671a
+
+app.get('/unauthorized', (req, res) => {
+    res.send(`You must gather your party before venturing forth.`);
+});
 
 server.listen(1337, () => console.log('server is running on port 1337'));
 
