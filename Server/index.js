@@ -45,7 +45,7 @@ const userRoutes = require("./routers/user")
 const { requireLogin } = require('./auth')
 
 app.use("/", homeRoutes)
-app.use("/api/users", userRoutes)
+app.use("/api/user", userRoutes)
 
 app.get('/private', requireLogin, (req, res) => {
     console.log(req.session.user);
@@ -53,7 +53,7 @@ app.get('/private', requireLogin, (req, res) => {
     res.send(`
 
 <h1>Hi ${username}!</h1>
-<a href="/todos">Test Stuff</a>
+<a href="/blog">Test Stuff</a>
 <br>
 <a href="/users/logout">Log out</a>
     `);
