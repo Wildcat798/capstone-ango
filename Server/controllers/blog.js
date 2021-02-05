@@ -1,4 +1,4 @@
-const { layout } = require('../utils')
+const { layout } = require('../layout')
 const { Post } = require('../models');
 
 const createPost = (req, res) => {
