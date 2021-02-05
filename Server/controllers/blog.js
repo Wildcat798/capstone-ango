@@ -32,8 +32,48 @@ const postPost = async (req, res) => {
     
 };
 
+const createComment = async (req, res) => {
+    const { id } = req.params;
+
+    const post = await Post.findByPk(id);
+    const users = await User.findAll({
+        order: [["username", "asc"]],
+    });
+
+    res.render("createComment", {
+        locals: {
+        title: "Add Comment",
+        post,
+        users,
+        },
+        ...layout,
+    });
+};
+
+const postComment = async (req, res) => {
+    const post = req.params.id;
+    const { content } = req.body;
+    const { id } = req.session.user;
+    if (title && id) {
+        const comment = await Comment.create({
+            content,
+            userid: id,
+            postid: post,
+        });
+        res.status(200).json({
+            message: "Created comment",
+            id
+        });
+    } else {
+    res.redirect(req.url);
+    }
+};
+
+
 
 module.exports = {
     createPost,
     postPost,
+    createComment,
+    postComment
 };
