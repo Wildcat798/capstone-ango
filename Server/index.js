@@ -41,11 +41,14 @@ app.set('view engine', 'html');
 
 const homeRoutes = require("./routers/home")
 const userRoutes = require("./routers/user")
+const blogRoutes = require("./routers/blog")
 
 const { requireLogin } = require('./auth')
 
 app.use("/", homeRoutes)
-app.use("/api/users", userRoutes)
+
+app.use("/api/user", userRoutes)
+app.use("/api/blog", blogRoutes)
 
 app.get('/private', requireLogin, (req, res) => {
     console.log(req.session.user);
@@ -53,11 +56,12 @@ app.get('/private', requireLogin, (req, res) => {
     res.send(`
 
 <h1>Hi ${username}!</h1>
-<a href="/todos">Test Stuff</a>
+<a href="/blog">Test Stuff</a>
 <br>
-<a href="/users/logout">Log out</a>
+<a href="/user/logout">Log out</a>
     `);
 });
+
 
 app.get('/unauthorized', (req, res) => {
     res.send(`You must gather your party before venturing forth.`);

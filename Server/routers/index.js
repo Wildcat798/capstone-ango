@@ -4,6 +4,6 @@ const router = express.Router();
 router
     .use("/", require("./home"))
     .use("/user", require("./user"))
-    // .use("/private", require("./private"))
+    .use("/blog", require("./blog"))
 
 module.exports = router;
