@@ -1,0 +1,217 @@
+# Query: <a href=
+# ContextLines: 1
+
+112 results - 6 files
+
+capstone-ango/Client/src/Components/Private.js:
+  11              <ul class="col-sm-8">
+  12:                 <li><Link to="/21_chat-rules">Rules for Use of Website & Chat</Link></li>
+  13:                 <li><Link to="/21_chat">ANGO-Chat</Link></li>
+  14:                 <li><Link to="/22_abod">Message from ANGO Board</Link></li>
+  15:                 <li><Link to="/22_aoff">Message from ANGO Officers</Link></li>
+  16:                 <li><Link to="/23_cbod">Message from Country Board</Link></li>
+  17:                 <li><Link to="/23_coff">Message from Country Officers</Link></li>
+  18:                 <li><Link to="/17_careers">Ways You Can Participate</Link></li>
+  19:                 <li><Link to="/24_vote">Voting & Election Information</Link></li>
+  20              </ul>
+  21:             <h3><Link to="/">Blog</Link></h3>
+  22              <ul class="col-sm-6">
+  23:                 <li><Link to="/Vision">Notices of Events & Meetings</Link></li>
+  24:                 <li><Link to="/Mission">Calendar</Link></li>
+  25:                 <li><Link to="/History">Travel Notices and Advisories</Link></li>
+  26:                 <li><Link to="/Board_Members">Travel Tips and Maps</Link></li>
+  27:                 <li><Link to="/Field_of_Work">Help for Conference Organization</Link></li>
+  28:                 <li><Link to="/Governance">Conference Registration</Link></li>
+  29:                 <li><Link to="/Standards">Information About Projects</Link></li>
+  30              </ul>
+
+capstone-ango/Client/src/Components/Public.js:
+  17              <Who/>
+  18:                 <h3><Link to="/">Who we are</Link></h3>
+  19                  <ul class="col-sm-8">
+  20:                     <li><Link to="/Vision">Vision</Link></li>
+  21:                     <li><Link to="/Mission">Mission</Link></li>
+  22:                     <li><Link to="/History">History</Link></li>
+  23:                     <li><Link to="/Board_Members">Board Members</Link></li>
+  24:                     <li><Link to="/Field_of_Work">Field of Work</Link></li>
+  25:                     <li><Link to="/Governance">Governance</Link></li>
+  26:                     <li><Link to="/Standards">Standards</Link></li>
+  27:                     <li><Link to="/Finances">Finances</Link></li>
+  28                  </ul>
+
+  36                  <Where/>
+  37:                 <h3><Link to="/">Where we work</Link></h3>
+  38                      <p>[Link to countries page]</p>
+
+  41                  <Blog/>
+  42:                 <h3><Link to="/">Blog</Link></h3>
+  43                      <ul class="col-sm-4">
+  44:                         <li><Link to="/News">News</Link></li>
+  45:                         <li><Link to="/Publications">Publications</Link></li>
+  46                      </ul>
+
+  49                  <More/>
+  50:                 <h5><Link to="/">More</Link></h5>
+  51                      <ul class="col-sm-4">
+  52:                         <li><Link to="/Careers">Careers</Link></li>
+  53:                         <li><Link to="/Contact">Contact</Link></li>
+  54:                         <li><Link to="/Privacy">Privacy</Link></li>
+  55:                         <li><Link to="/Cookies">Cookies</Link></li>
+  56                      </ul>
+
+capstone-ango/Server/index.js:
+  58  <h1>Hi ${username}!</h1>
+  59: <Link to="/blog">Test Stuff</Link>
+  60  <br>
+  61: <Link to="/user/logout">Log out</Link>
+  62      `);
+
+capstone-ango/Server/templates/home.html:
+    3  <ul class="navbar">
+    4:     <li><Link to="/">Home</Link></li>
+    5:     <li><Link to="/about">About</Link></li>
+    6:     <li><Link to="/contact">Contact></Link></li>
+    7  </ul>
+
+    9  <br>
+   10: <Link to="/user/signup">Signup></Link>     or     <Link to="/user/login">Login></Link>
+   11  </div>
+
+   17          <div class="col-sm-2">
+   18:             <h3><Link to="/">></Link></h3>
+   19:             <Link to="/user/signup">Signup></Link> or <Link to="/user/login">Login></Link>
+   20          </div>
+   21          <div class="col-sm-8">
+   22:             <h6><Link to="/">Cookie policy - This site uses cookies, and by continuing to browse this site we assume you agree to this. You can turn cookies off within your browser, although certain parts of the site will not work if you do. For more information please read our cookie policy.></Link></h6>
+   23              <p></p>
+
+   33          <div class="col-sm-3">
+   34:             <h3><Link to="/">Language></Link></h3>
+   35              <p>[Dropdown Menu]</p>
+
+   37          <div class="col-sm-6">
+   38:             <h3><Link to="/">Asian Non Governmental Organization></Link></h3>
+   39              <p>(ANGO)</p>
+
+   41          <div class="col-sm-3">
+   42:             <h3><Link to="/">Donate Now></Link></h3>
+   43              <p>[Link to donation page]</p>
+
+   49          <div class="col-sm-2">
+   50:             <h5><Link to="/">Search></Link></h5>
+   51              <p>[Open Search Box]</p>
+
+   53          <div class="col-sm-3">
+   54:             <h3><Link to="/">Who we are></Link></h3>
+   55              <ul class="col-sm-8">
+   56:                 <li><Link to="/Vision">Vision></Link></li>
+   57:                 <li><Link to="/Mission">Mission></Link></li>
+   58:                 <li><Link to="/History">History></Link></li>
+   59:                 <li><Link to="/Board_Members">Board Members></Link></li>
+   60:                 <li><Link to="/Field_of_Work">Field of Work></Link></li>
+   61:                 <li><Link to="/Governance">Governance></Link></li>
+   62:                 <li><Link to="/Standards">Standards></Link></li>
+   63:                 <li><Link to="/Finances">Finances></Link></li>
+   64              </ul>
+
+   66          <div class="col-sm-3">
+   67:             <h3><Link to="/">Where we work></Link></h3>
+   68              <p>[Link to countries page]</p>
+
+   70          <div class="col-sm-2">
+   71:             <h3><Link to="/">Blog></Link></h3>
+   72              <ul class="col-sm-4">
+   73:                 <li><Link to="/News">News></Link></li>
+   74:                 <li><Link to="/Publications">Publications></Link></li>
+   75              </ul>
+
+   77          <div class="col-sm-2">
+   78:             <h5><Link to="/">More></Link></h5>
+   79              <ul class="col-sm-4">
+   80:                 <li><Link to="/Careers">Careers></Link></li>
+   81:                 <li><Link to="/Contact">Contact></Link></li>
+   82:                 <li><Link to="/Privacy">Privacy></Link></li>
+   83:                 <li><Link to="/Cookies">Cookies></Link></li>
+   84              </ul>
+
+  105          <div class="col-sm-3">
+  106:             <h3><Link to="/">></Link></h3>
+  107:                 <p><Link to="/Vision">Vision></Link></p>
+  108:                 <p><Link to="/Mission">Mission></Link></p>
+  109:                 <p><Link to="/History">History></Link></p>
+  110:                 <p><Link to="/Board_Members">Board Members></Link></p>
+  111          </div>
+  112          <div class="col-sm-3">
+  113:             <h3><Link to="/">></Link></h3>
+  114:                 <p><Link to="/Field_of_Work">Field of Work></Link></p>
+  115:                 <p><Link to="/Governance">Governance></Link></p>
+  116:                 <p><Link to="/Standards">Standards></Link></p>
+  117:                 <p><Link to="/Finances">Finances></Link></p>
+  118          </div>
+  119          <div class="col-sm-3">
+  120:             <h3><Link to="/">></Link></h3>
+  121:                 <p><Link to="/News">News></Link></p>
+  122:                 <p><Link to="/Publications">Publications></Link></p>
+  123          </div>
+  124          <div class="col-sm-3">
+  125:             <h3><Link to="/">></Link></h3>
+  126:                 <p><Link to="/Careers">Careers></Link></p>
+  127:                 <p><Link to="/Contact">Contact></Link></p>
+  128:                 <p><Link to="/Privacy">Privacy></Link></p>
+  129:                 <p><Link to="/Cookies">Cookies></Link></p>
+  130          </div>
+
+capstone-ango/Server/templates/userHome.html:
+   8          <div class="col-sm-8">
+   9:             <h6><Link to="/">></Link></h6>
+  10              <p></p>
+
+  23          <div class="col-sm-10">
+  24:             <h1><Link to="/">Welcome to the ANGO members only page.></Link></h1>
+  25              <p></p>
+
+  34          <div class="col-sm-6">
+  35:             <h3><Link to="/">Who we are></Link></h3>
+  36              <ul class="col-sm-8">
+  37:                 <li><Link to="/21_chat-rules">Rules for Use of Website & Chat></Link></li>
+  38:                 <li><Link to="/21_chat">ANGO-Chat></Link></li>
+  39:                 <li><Link to="/22_abod">Message from ANGO Board></Link></li>
+  40:                 <li><Link to="/22_aoff">Message from ANGO Officers></Link></li>
+  41:                 <li><Link to="/23_cbod">Message from Country Board></Link></li>
+  42:                 <li><Link to="/23_coff">Message from Country Officers></Link></li>
+  43:                 <li><Link to="/17_careers">Ways You Can Participate></Link></li>
+  44:                 <li><Link to="/24_vote">Voting & Election Information></Link></li>
+  45              </ul>
+
+  47          <div class="col-sm-6">
+  48:             <h3><Link to="/">Blog></Link></h3>
+  49              <ul class="col-sm-6">
+  50:                 <li><Link to="/Vision">Notices of Events & Meetings></Link></li>
+  51:                 <li><Link to="/Mission">Calendar></Link></li>
+  52:                 <li><Link to="/History">Travel Notices and Advisories></Link></li>
+  53:                 <li><Link to="/Board_Members">Travel Tips and Maps></Link></li>
+  54:                 <li><Link to="/Field_of_Work">Help for Conference Organization></Link></li>
+  55:                 <li><Link to="/Governance">Conference Registration></Link></li>
+  56:                 <li><Link to="/Standards">Information About Projects></Link></li>
+  57              </ul>
+
+capstone-ango/Server/templates/blog/blogList.html:
+   4  
+   5: <Link to="/private/chat/create"><button>ADD POST</button>></Link>
+   6  
+
+  11              <h2>${p.title}</h2>
+  12:             <Link to="/blog/blog/profile/${p.userid}">
+  13                  <h3>${p.User.username}</h3>
+
+  24  
+  25:         <Link to="/blog/post/${p.id}/comment"><button>ADD COMMENT</button>></Link>
+  26:         <Link to="/blog/post/${p.id}/edit"><button>EDIT POST</button>></Link>
+  27:         <Link to="/blog/post/${p.id}/delete"><button>DELETE POST</button>></Link>
+  28          <ul>
+
+  30                  <li data-comment-id="${c.id}">
+  31:                     ${c.User ? `<Link to="/blog/blog/profile/${c.User.id}">${c.User.username}></Link>` : ''}: ${c.content}
+  32:                     <Link to="/blog/comment/${c.id}/edit"> <button>Edit Comment</button>></Link>
+  33:                     <Link to="/blog/comment/${c.id}/delete"> <button>Delete Comment</button></Link>
+  34                  </li>
