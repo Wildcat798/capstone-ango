@@ -4,13 +4,11 @@ import Chat from "./Components/Chat";
 import io from "socket.io-client";
 import immer from "immer";
 import "./App.css";
-// import "./WebPages.js";
 import Public from "./Components/Public"
 import Private from "./Components/Private"
 import Projects from "./Components/Projects"
 import { 
   BrowserRouter as Router,
-  Link,
   Switch,
   Route
 } from 'react-router-dom';
