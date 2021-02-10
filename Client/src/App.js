@@ -14,12 +14,6 @@ import {
 } from 'react-router-dom';
 import Home from './Components/Home';
 
-// to connect to backend
-import axios from 'axios';
-import Login from './Components/Login';
-import Signup from './Components/Signup';
-import Logout from './Components/Logout';
-
 const initialMessagesState = {
   general: [],
   lawmakers: [],
@@ -30,50 +24,6 @@ const initialMessagesState = {
 };
 
 function App() {
-  // to connect to backend
-  const [loggedIn, setloggedIn] = useState(false);
-  const [blogs, setBlogs] = useState([]);
-
-  // async function retrieveBlog() {
-  //   const resp = await axios.get('/api/blog')
-  //   // -------------Blog Data-------------------------------
-  //   console.log(data)
-  //   // -----------------------------------------------------
-  //   setBlogs(resp.data.blogs);
-  // }
-
-  function doLogin() {
-    console.log("You're logged in.");
-    setloggedIn(true);
-  }
-
-  function doLogout() {
-    console.log("You're out.");
-    setloggedIn(false);
-  }
-
-  useEffect(() => {
-    async function checkLogin() {
-      try {      
-        const resp = await axios.get('/api/user/login-status');
-        console.log('you are logged in already');
-        setloggedIn(true);
-      } catch (e) {
-        console.log('error means not logged in');
-        setloggedIn(false);
-      }
-    }
-    checkLogin();    
-  }, []);
-
-  useEffect(() => {
-    console.log(`Value of loggedIn: ${loggedIn}`);
-    if (loggedIn) {
-      // retrieveBlog();
-      console.log("ayy")
-    }
-  }, [loggedIn]);
-  // -------------------------------------------------------------
   const [username, setUsername] = useState("");
   const [connected, setConnected] = useState (false);
   const [currentChat, setCurrentChat] = useState({ isChannel: true, chatName: "general", receiverId: "" });
@@ -185,8 +135,7 @@ function App() {
 
   return (
     <div className="App">
-      <Signup />
-      <Logout doLogout={doLogout} />
+      <Home />
 
     <Router>
       <Switch>

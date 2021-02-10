@@ -4,7 +4,7 @@ const router = express.Router()
 const { userController } = require("../controllers")
 
 router
-	// .get("/signup", userController.signUp)
+	.get("/signup", userController.signUp)
 	.post("/signup", userController.processSignUp)
 
 	.get("/login", userController.login)
