@@ -15,6 +15,8 @@ import {
   Route
 } from 'react-router-dom';
 import Home from './Components/Home';
+import SignUp from './Components/Signup'
+
 
 const initialMessagesState = {
   general: [],
@@ -136,8 +138,8 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Home />
+  <div className="App">
+    <SignUp />
 
     <Router>
       <Switch>
@@ -161,7 +163,7 @@ function App() {
 
       </Switch>
 
-  </Router>
+    </Router>
   </div>
 );
 }

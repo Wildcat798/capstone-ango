@@ -2,15 +2,15 @@ const bcrypt = require("bcryptjs");
 const { layout } = require("../layout");
 const { User } = require("../models");
 
-const signUp = (req, res) => {
-	res.render("signup", {
-		locals: {
-			title: "Sign Up",
-			errormsg: "",
-		},
-		...layout,
-	});
-};
+// const signUp = (req, res) => {
+// 	res.render("signup", {
+// 		locals: {
+// 			title: "Sign Up",
+// 			message: "",
+// 		},
+// 		...layout,
+// 	});
+// };
 
 const processSignUp = async (req, res) => {
 	const { username, password, country, email } = req.body;
@@ -19,7 +19,7 @@ const processSignUp = async (req, res) => {
 		console.log('username or password is blank', req.baseUrl);
 		console.log("API: sending back 404");
 		res.status(400).json({
-			errormsg: "Username or password is blank"
+			message: "Username or password is blank"
 		});
 	} else {
 		const hash = bcrypt.hashSync(password, 10);
@@ -32,7 +32,7 @@ const processSignUp = async (req, res) => {
 			});
 			console.log("API: user created successfully");
 			res.status(200).json({
-				errormsg: "Success"
+				message: "Success"
 			});
 	} catch (e) {
 		console.log(e.name);
@@ -40,21 +40,21 @@ const processSignUp = async (req, res) => {
 			r}
 			console.log("API: username already taken");
 			res.status(400).json({
-				errormsg: "Username is already taken"
+				message: "Username is already taken"
 			});      
 		}
 	}
 };
 
-const login = (req, res) => {
-	res.render("login", {
-		locals: {
-			title: "Login",
-			errormsg: "",
-		},
-		...layout,
-	});
-};
+// const login = (req, res) => {
+// 	res.render("login", {
+// 		locals: {
+// 			title: "Login",
+// 			message: "",
+// 		},
+// 		...layout,
+// 	});
+// };
 
 const processLogin = async (req, res) => {
 	const { username, password } = req.body;
@@ -75,7 +75,7 @@ const processLogin = async (req, res) => {
 			req.session.save(() => {
 			console.log("API: login successful");
 			res.status(200).json({
-				errormsg: "Login successful",
+				message: "Login successful",
 				id: user.id,
 			});
 			return;
@@ -86,7 +86,7 @@ const processLogin = async (req, res) => {
 		console.log('but password is wrong');
 		console.log("API: invalid password for user");
 		res.status(400).json({
-			errormsg: "Invalid username or password",
+			message: "Invalid username or password",
 		});
 		return;
 		}
@@ -94,7 +94,7 @@ const processLogin = async (req, res) => {
 		console.log('not a valid user');
 		console.log("API: invalid username");
 		res.status(400).json({
-			errormsg: "Invalid username or password",
+			message: "Invalid username or password",
 		});
 		return;
 	}
@@ -125,9 +125,9 @@ const loginStatus = (req, res) => {
 };
 
 module.exports = {
-	signUp,
+	// signUp,
 	processSignUp,
-	login,
+	// login,
 	processLogin,
 	logout,
 	loginStatus
