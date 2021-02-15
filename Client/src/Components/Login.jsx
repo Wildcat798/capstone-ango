@@ -47,6 +47,7 @@ return (
             type="password"
             name="password"
             value={password}
+            placeholder="password"
             onChange={(e) => {
             setPassword(e.target.value);
         }}

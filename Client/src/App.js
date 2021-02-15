@@ -16,7 +16,17 @@ import {
 } from 'react-router-dom';
 import Home from './Components/Home';
 import SignUp from './Components/Signup'
+import Login from './Components/Login';
+import LoginPage from './Components/LoginPage';
+import LocalStorage from './Components/Hooks/LocalStorage'
+import Dashboard from './Components/Dashboard';
+import { ContactsProvider } from './Components/Context/ContactsProvider'
+import { ConversationsProvider } from './Components/Context/ConversationsProvider'
+import { SocketProvider } from './Components/Context/SocketProvider'
 
+// -------------------------------------------------------------
+// Art Chat Stuff START
+// -------------------------------------------------------------
 
 const initialMessagesState = {
   general: [],
@@ -136,35 +146,51 @@ function App() {
       <Form username={username} onChange={handleChange} connect={connect} />
     );
   }
+// -------------------------------------------------------------
+// Art Chat Stuff END
+// -------------------------------------------------------------
+
+  const [id, setId] = LocalStorage('id')
+  const dashboard = (
+    <SocketProvider id={id}>
+      <ContactsProvider>
+        <ConversationsProvider id={id}>
+          <Dashboard id={id} />
+        </ConversationsProvider>
+      </ContactsProvider>
+    </SocketProvider>
+  )
 
   return (
-  <div className="App">
-    <SignUp />
+  
+    // id ? dashboard : <LoginPage idSubmit={setId}/>
 
-    <Router>
-      <Switch>
+    <div className="App">
+      
 
-        <Route path="/public" exact>
-          <Public />
-        </Route>
-        <Route path="/private" exact>
-          <Private />
-        </Route>
-        <Route path="/projects" exact>
-          <Projects />
-        </Route>
-        <Route path="/chat" exact>
-          {body}
-        </Route>
-        <Route path="/form" exact>
-          {body}
+      <Router>
+        <Switch>
 
-        </Route>
+          <Route path="/public" exact>
+            <Public />
+          </Route>
+          <Route path="/private" exact>
+            <Private />
+          </Route>
+          <Route path="/projects" exact>
+            <Projects />
+          </Route>
+          <Route path="/chat" exact>
+            <LoginPage idSubmit={setId} />
+          </Route>
+          <Route path="/dash" exact>
+            {dashboard}
+          </Route>
 
-      </Switch>
+        </Switch>
 
-    </Router>
-  </div>
+      </Router>
+    </div>
 );
 }
 

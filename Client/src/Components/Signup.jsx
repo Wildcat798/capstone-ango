@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, BrowserRouter, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import axios from "axios";
 
 function SignUp(props) {
@@ -94,13 +94,6 @@ function SignUp(props) {
 <br></br>
         <input className="" type="submit" value="Submit" />
         </form>
-<br></br>
-        <BrowserRouter>
-            <Link to="/login">
-                <button className="">Log In</button>
-            </Link>
-        </BrowserRouter>
-        <p class="">&copy; 2021</p>
     </main>
     );
 }

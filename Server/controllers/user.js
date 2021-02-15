@@ -22,7 +22,7 @@ const processSignUp = async (req, res) => {
 			message: "Username or password is blank"
 		});
 	} else {
-		const hash = bcrypt.hashSync(password, 10);
+		const hash = await bcrypt.hashSync(password, 10);
 		try {
 			const newUser = await User.create({
 				username,
