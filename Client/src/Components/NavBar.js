@@ -29,6 +29,13 @@ export default function NavBar() {
                     Projects
                 </NavLink>
                 <NavLink 
+                    to="/chat" 
+                    className="inflex-flex items-center py-3 px-3 my-6 rounded text-yellow-200 hover:text-green-500"
+                    activeClassName="text-yellow-500 bg-red-900"
+                    >
+                    Chat
+                </NavLink>
+                <NavLink 
                     to="/about" 
                     className="inflex-flex items-center py-3 px-3 my-6 rounded text-yellow-200 hover:text-green-500"
                     activeClassName="text-yellow-500 bg-red-900"
