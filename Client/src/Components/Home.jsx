@@ -13,7 +13,6 @@ const Home = props => {
     const [state, setState] = useState('')
 
   return(
-<<<<<<< HEAD:Client/src/Components/Home.js
     <main>
       <img 
         src={image} 
@@ -27,14 +26,7 @@ const Home = props => {
         <p>{state}</p>
       </section>
     </main>
-  )
-=======
-    <div>
-      Home
-      <p>{state}</p>
-    </div>
- )
->>>>>>> master:Client/src/Components/Home.jsx
+  );
 };
 
 export default Home;

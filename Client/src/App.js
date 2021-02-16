@@ -13,8 +13,7 @@ import {
   Link,
   Switch,
   Route
-} from 'react-router-dom';
-<<<<<<< HEAD
+} from "react-router-dom";
 // to connect to public blog
 import Home from "./Components/Home";
 import About from "./Components/About";
@@ -24,18 +23,15 @@ import Project from "./Components/Project";
 import NavBar from "./Components/NavBar";
 
 // to connect to backend
-import axios from 'axios';
-=======
-import Home from './Components/Home';
-import SignUp from './Components/Signup'
->>>>>>> master
-import Login from './Components/Login';
-import LoginPage from './Components/LoginPage';
-import LocalStorage from './Components/Hooks/LocalStorage'
-import Dashboard from './Components/Dashboard';
-import { ContactsProvider } from './Components/Context/ContactsProvider'
-import { ConversationsProvider } from './Components/Context/ConversationsProvider'
-import { SocketProvider } from './Components/Context/SocketProvider'
+import axios from "axios";
+import SignUp from "./Components/Signup";
+import Login from "./Components/Login";
+import LoginPage from "./Components/LoginPage";
+import LocalStorage from "./Components/Hooks/LocalStorage";
+import Dashboard from "./Components/Dashboard";
+import { ContactsProvider } from "./Components/Context/ContactsProvider";
+import { ConversationsProvider } from "./Components/Context/ConversationsProvider";
+import { SocketProvider } from "./Components/Context/SocketProvider";
 
 // -------------------------------------------------------------
 // Art Chat Stuff START
@@ -179,7 +175,6 @@ function App() {
     // id ? dashboard : <LoginPage idSubmit={setId}/>
 
     <div className="App">
-<<<<<<< HEAD
       <Signup />
       <Logout doLogout={doLogout} />
 
@@ -197,12 +192,15 @@ function App() {
           <Projects />
         </Route>
         <Route path="/chat" exact>
-          {body}
+        <LoginPage idSubmit={setId} />
         </Route>
         <Route path="/form" exact>
           {body}
         </Route>
-
+        <Route path="/dash" exact>
+            {dashboard}
+          </Route>
+          
         <Route component={Home} path='/' exact />
         <Route component={About} path='/about' />
         <Route component={SinglePost} path='/post/:slug' />
@@ -213,34 +211,6 @@ function App() {
       </Router>
     </div>
   );
-=======
-      
-
-      <Router>
-        <Switch>
-
-          <Route path="/public" exact>
-            <Public />
-          </Route>
-          <Route path="/private" exact>
-            <Private />
-          </Route>
-          <Route path="/projects" exact>
-            <Projects />
-          </Route>
-          <Route path="/chat" exact>
-            <LoginPage idSubmit={setId} />
-          </Route>
-          <Route path="/dash" exact>
-            {dashboard}
-          </Route>
-
-        </Switch>
-
-      </Router>
-    </div>
-);
->>>>>>> master
 }
 
 export default App;
