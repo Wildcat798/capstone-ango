@@ -12,7 +12,13 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import Home from './Components/Home';
+// to connect to public blog
+import Home from "./Components/Home";
+import About from "./Components/About";
+import SinglePost from "./Components/SinglePost";
+import Post from "./Components/Post";
+import Project from "./Components/Project";
+import NavBar from "./Components/NavBar";
 
 // to connect to backend
 import axios from 'axios';
@@ -188,8 +194,9 @@ function App() {
       <Signup />
       <Logout doLogout={doLogout} />
 
-    <Router>
-      <Switch>
+      <Router>
+      <NavBar/>
+        <Switch>
 
         <Route path="/public" exact>
           <Public />
@@ -205,14 +212,18 @@ function App() {
         </Route>
         <Route path="/form" exact>
           {body}
-
         </Route>
 
-      </Switch>
+        <Route component={Home} path='/' exact />
+        <Route component={About} path='/about' />
+        <Route component={SinglePost} path='/post/:slug' />
+        <Route component={Post} path='/post' />
+        <Route component={Project} path='/project' />
 
-  </Router>
-  </div>
-);
+        </Switch>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
