@@ -24,8 +24,7 @@ import NavBar from "./Components/NavBar";
 
 // to connect to backend
 import axios from "axios";
-import SignUp from "./Components/Signup";
-import Login from "./Components/Login";
+import Signup from "./Components/Signup";
 import LoginPage from "./Components/LoginPage";
 import LocalStorage from "./Components/Hooks/LocalStorage";
 import Dashboard from "./Components/Dashboard";
@@ -176,7 +175,6 @@ function App() {
 
     <div className="App">
       <Signup />
-      <Logout doLogout={doLogout} />
 
       <Router>
       <NavBar/>
