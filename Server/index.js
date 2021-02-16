@@ -67,7 +67,7 @@ app.get('/unauthorized', (req, res) => {
     res.send(`You must gather your party before venturing forth.`);
 });
 
-server.listen(1337, () => console.log('server is running on port 1337'));
+server.listen(3000, () => console.log('server is running on port 3000'));
 
 
 
