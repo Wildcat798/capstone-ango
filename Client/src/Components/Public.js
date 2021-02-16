@@ -15,43 +15,49 @@ function Public () {
             <Ango/>
             <div className="container">
             <Who/>
-                <h3><Link to="/">Who we are</Link></h3>
-                <ul>
-                    <li><Link to="/Vision">Vision</Link></li>
-                    <li><Link to="/Mission">Mission</Link></li>
-                    <li><Link to="/History">History</Link></li>
-                    <li><Link to="/Board_Members">Board Members</Link></li>
-                    <li><Link to="/Field_of_Work">Field of Work</Link></li>
-                    <li><Link to="/Governance">Governance</Link></li>
-                    <li><Link to="/Standards">Standards</Link></li>
-                    <li><Link to="/Finances">Finances</Link></li>
+                <h3><a href="/">Who we are</a></h3>
+                <ul class="col-sm-8">
+                    <li><a href="/Vision">Vision</a></li>
+                    <li><a href="/Mission">Mission</a></li>
+                    <li><a href="/History">History</a></li>
+                    <li><a href="/Board_Members">Board Members</a></li>
+                    <li><a href="/Field_of_Work">Field of Work</a></li>
+                    <li><a href="/Governance">Governance</a></li>
+                    <li><a href="/Standards">Standards</a></li>
+                    <li><a href="/Finances">Finances</a></li>
                 </ul>
-                </div>
+            {/* <div className="container-links">
+                <ButtonSignup/>
+                <ButtonLogin/>
+                <ButtonLogout/>
+                <ButtonDonate/>
+            </div> */}
             <div className="container-ango">
                 <Where/>
-                <h3><Link to="/">Where we work</Link></h3>
+                <h3><a href="/">Where we work</a></h3>
                     <p>[Link to countries page]</p>
             </div>
             <div className="container-menu">
                 <Blog/>
-                <h3><Link to="/">Blog</Link></h3>
-                    <ul>
-                        <li><Link to="/News">News</Link></li>
-                        <li><Link to="/Publications">Publications</Link></li>
+                <h3><a href="/">Blog</a></h3>
+                    <ul class="col-sm-4">
+                        <li><a href="/News">News</a></li>
+                        <li><a href="/Publications">Publications</a></li>
                     </ul>
             </div>
             <div className="container-more">
                 <More/>
-                <h5><Link to="/">More</Link></h5>
-                    <ul>
-                        <li><Link to="/Careers">Careers</Link></li>
-                        <li><Link to="/Contact">Contact</Link></li>
-                        <li><Link to="/Privacy">Privacy</Link></li>
-                        <li><Link to="/Cookies">Cookies</Link></li>
+                <h5><a href="/">More</a></h5>
+                    <ul class="col-sm-4">
+                        <li><a href="/Careers">Careers</a></li>
+                        <li><a href="/Contact">Contact</a></li>
+                        <li><a href="/Privacy">Privacy</a></li>
+                        <li><a href="/Cookies">Cookies</a></li>
                     </ul>
             </div>
+            </div>
         </div>
-    );
-}
+        );
+    }
 
 export default Public;

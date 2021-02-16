@@ -2,15 +2,15 @@ const bcrypt = require("bcryptjs");
 const { layout } = require("../layout");
 const { User } = require("../models");
 
-const signUp = (req, res) => {
-	res.render("signup", {
-		locals: {
-			title: "Sign Up",
-			message: "",
-		},
-		...layout,
-	});
-};
+// const signUp = (req, res) => {
+// 	res.render("signup", {
+// 		locals: {
+// 			title: "Sign Up",
+// 			message: "",
+// 		},
+// 		...layout,
+// 	});
+// };
 
 const processSignUp = async (req, res) => {
 	const { username, password, country, email } = req.body;
@@ -22,7 +22,7 @@ const processSignUp = async (req, res) => {
 			message: "Username or password is blank"
 		});
 	} else {
-		const hash = bcrypt.hashSync(password, 10);
+		const hash = await bcrypt.hashSync(password, 10);
 		try {
 			const newUser = await User.create({
 				username,
@@ -46,15 +46,15 @@ const processSignUp = async (req, res) => {
 	}
 };
 
-const login = (req, res) => {
-	res.render("login", {
-		locals: {
-			title: "Login",
-			message: "",
-		},
-		...layout,
-	});
-};
+// const login = (req, res) => {
+// 	res.render("login", {
+// 		locals: {
+// 			title: "Login",
+// 			message: "",
+// 		},
+// 		...layout,
+// 	});
+// };
 
 const processLogin = async (req, res) => {
 	const { username, password } = req.body;
@@ -125,9 +125,9 @@ const loginStatus = (req, res) => {
 };
 
 module.exports = {
-	signUp,
+	// signUp,
 	processSignUp,
-	login,
+	// login,
 	processLogin,
 	logout,
 	loginStatus

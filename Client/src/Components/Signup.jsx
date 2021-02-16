@@ -1,73 +1,101 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import { Link, NavLink, useHistory } from "react-router-dom";
+import axios from "axios";
 
-function Signup(props) {
+function SignUp(props) {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [country, setCountry] = useState("");
+    const [email, setEmail] = useState("");
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [country, setCountry] = useState('');
-    const [email, setEmail] = useState('');
+    let history = useHistory();
 
-    const [message, setMessage] = useState('');
+    const processSignUp = async (e) => {
+        e.preventDefault();
+        const newUser = {
+            username,
+            password,
+            country,
+            email,
+        };
+        const resp = await axios.post("/api/user/signup", newUser);
 
-    const onSubmit = async (e) => {
-        e.preventDefault();    
-        const resp = await axios.post('/api/user/signup', {
-        username,
-        password,
-        country,
-        email
-        });
         console.log(resp);
 
-            setMessage('');
+        history.push("/login");
     };
 
-return (
-    <section>
-        <h1>Sign Up</h1>
-        
-        { message && <h2>{message}</h2>}
-        
-        <form onSubmit={onSubmit}>
-            <label>
-                Username:
-                <input
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-                />
-            </label>
-            <br />
-            <label>
-                Password:
-                <input
-                type="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                />    
-            </label>
-            <br />
-            <label>
-                Country:
-                <input
-                value={country}
-                onChange={e => setCountry(e.target.value)}
-                />    
-            </label>
-            <br />
-            <label>
-                Email:
-                <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                />    
-            </label>
-            <br />
-            <input type="submit" />
+    return (
+    <main className="">
+        <form onSubmit={processSignUp}>
+        <h1 className="">Sign Up Here</h1>
+        <label className="">
+            {" "}
+            Username
+            <input
+            type="text"
+            value={username}
+            className=""
+            name="username"
+            placeholder="Username"
+            onChange={(e) => {
+                setUsername(e.target.value);
+            }}
+            required
+            autoFocus
+            />
+        </label>
+<br></br>
+        <label className="">
+            Password
+            <input
+            type="password"
+            value={password}
+            className=""
+            name="password"
+            placeholder="Password"
+            onChange={(e) => {
+                setPassword(e.target.value);
+            }}
+            required
+            />
+        </label>
+<br></br>
+        <label className="">
+            {" "}
+            Country
+            <input
+            type="text"
+            value={country}
+            className=""
+            name="country"
+            placeholder="Country"
+            onChange={(e) => {
+                setCountry(e.target.value);
+            }}
+            required
+            />
+        </label>
+<br></br>
+        <label className="">
+            Email Address
+            <input
+            type="text"
+            value={email}
+            className=""
+            name="email"
+            placeholder="Email address"
+            onChange={(e) => {
+                setEmail(e.target.value);
+            }}
+            required
+            />
+        </label>
+<br></br>
+        <input className="" type="submit" value="Submit" />
         </form>
-    </section>
+    </main>
     );
 }
 
-export default Signup;
+export default SignUp;
