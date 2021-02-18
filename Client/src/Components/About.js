@@ -43,7 +43,7 @@ export default function About() {
                     />
                     <div className="text-lg flex flex-col justify-center">
                         <h1 className="cursive text-6xl text-green-300 mb-4">
-                        Public About Page! We are{" "}
+                        Hello! I am one of the three contributors on this project.  {" "}
                             <span className="text-green-100">
                                 {author.name}
                             </span>
